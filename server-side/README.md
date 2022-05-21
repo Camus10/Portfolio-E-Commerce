@@ -1,43 +1,43 @@
-# Portfolio-Social-Media
+# Portfolio Social Media  
+To do list :  
+- Order
+- Payment using PayPal
 
-Server Side by NodeJs
+Server Side by NodeJs  
 List APIs :
-- **Sign Up**
+- **Sign Up**  
 POST */api/signup*
-- **Sign In**
+- **Sign In**  
 POST */api/signin*
-- **Sign out**
+- **Sign out**  
 GET */api/signout*
-- **Create product**
+- **Create product**  
 POST */api/product/create/:userId*
-- **Update product by correct id**
+- **Update product by correct id**  
 PUT */api/product/:productId/:userId*
-- **Get all products in list**
+- **Get all products in list**  
 GET */api/products*
-- **Get product by id**
+- **Get product by id**  
 GET */api/product/:userId*
-- **Get product's category**
+- **Get product's category**  
 GET */api/products/categories*
-- **List products by search**
+- **List products by search**  
 POST */api/products/by/search*
-- **Delete product by correct id**
+- **Delete product by correct id**  
 DELETE */api/product/:productId/:userId*
-- **Create category**
+- **Create category**  
 POST */api/category/create/:userId*
-- **Get all category in list**
+- **Get all category in list**  
 GET */api/categories*
-- **Get category by id**
+- **Get category by id**  
 GET */api/category/userId*
-- **Update category by correct id**
+- **Update category by correct id**  
 PUT */api/category/:categoryId/:userId*
-- **Delete category by correct id**
+- **Delete category by correct id**  
 DELETE */api/category/:categoryId/:userId*
-- **Categories list on product**
+- **Categories list on product**  
 GET */api/products/categories*
-- **Get user by id**
+- **Get user by id**  
 GET */api/user/:userId*
-- **Update user by id**
+- **Update user by id**  
 PUT */api/user/:userId*
-
-Client Side by ReactJs
-- on progress...
