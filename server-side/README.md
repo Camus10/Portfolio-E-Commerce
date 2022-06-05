@@ -41,3 +41,5 @@ GET */api/products/categories*
 GET */api/user/:userId*
 - **Update user by id**  
 PUT */api/user/:userId*
+- **Braintree**  
+PUT */api/braintree/getToken/:userId*
