@@ -45,7 +45,7 @@ exports.create = (req, res) => {
 
     let product = new Product(fields);
     if(files.photo){
-      // max photo in size 10mb
+      // max photo in size 1mb
       if (files.photo.size > 10000000) {
         return res.status(400).json({
           error: 'Image should be less than 1mb in size'
@@ -249,4 +249,25 @@ exports.listSearch = (req, res) => {
       res.json(products);
     }).select('-photo');
   }
+};
+
+
+exports.decreaseQuantity = (req, res, next) => {
+  let bulkOps = req.body.order.products.map(item => {
+    return{
+      updateOne: {
+        filter: { _id: item._id },
+        update: { $inc: { quantity: -item.count, sold: +item.count } }
+      }
+    };
+  });
+
+  Product.bulkWrite(bulkOps, {}, (error, products) => {
+    if(error){
+      return res.status(400).json({
+        error: 'Could not update product'
+      });
+    }
+    next();
+  });
 };

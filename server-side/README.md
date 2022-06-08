@@ -1,7 +1,6 @@
 # Portfolio Social Media  
 To do list :  
 - Order
-- Payment using PayPal
 
 Server Side by NodeJs  
 List APIs :
@@ -43,3 +42,13 @@ GET */api/user/:userId*
 PUT */api/user/:userId*
 - **Braintree**  
 PUT */api/braintree/getToken/:userId*
+- **Order by user id**  
+POST */api/order/create/:userId*
+- **Get order list by users**  
+GET */order/list/:userId*
+- **Get status order list by users** 
+GET */order/status-values/:userId*
+- **Update status order list by users** 
+PUT */order/:orderId/status/:userId*
+- **Get user purchase history** 
+GET */orders/by/user/:userId*
