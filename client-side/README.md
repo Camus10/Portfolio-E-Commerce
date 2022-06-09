@@ -1,4 +1,4 @@
 # Portfolio Social Media  
 
 Client Side by ReactJs
-- on progress...
+- bug is on the date history
