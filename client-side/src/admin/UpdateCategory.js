@@ -30,7 +30,7 @@ const UpdateCategory = ({ match }) => {
 
   useEffect(() => {
     init(match.params.categoryId);
-  });
+  }, []);
   
   const handleChange = name => event => {
     setValues({ ...values, error: false, [name]: event.target.value });

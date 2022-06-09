@@ -34,7 +34,7 @@ const Profile = ({ match }) => {
 
   useEffect(() => {
       init(match.params.userId);
-  });
+  }, []);
 
   const handleChange = name => e => {
     setValues({

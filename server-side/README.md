@@ -1,6 +1,4 @@
 # Portfolio Social Media  
-To do list :  
-- Order
 
 Server Side by NodeJs  
 List APIs :
@@ -46,9 +44,9 @@ PUT */api/braintree/getToken/:userId*
 POST */api/order/create/:userId*
 - **Get order list by users**  
 GET */order/list/:userId*
-- **Get status order list by users** 
+- **Get status order list by users**  
 GET */order/status-values/:userId*
-- **Update status order list by users** 
+- **Update status order list by users**  
 PUT */order/:orderId/status/:userId*
-- **Get user purchase history** 
+- **Get user purchase history**  
 GET */orders/by/user/:userId*
