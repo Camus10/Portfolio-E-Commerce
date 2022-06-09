@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from "react";
-import Layout from "./Layout";
-import { getProducts, getBraintreeClientToken, processPayment, createOrder } from "./APICore";
-import Card from "./Card";
+import { getBraintreeClientToken, processPayment, createOrder } from "./APICore";
 import { isAuthenticated } from "../auth";
 import { Link } from "react-router-dom";
 import DropIn from "braintree-web-drop-in-react";
 import { emptyCart } from "./CartHelpers";
 
 
-const Checkout = ({products}) => {
+const Checkout = ({products, setRun = f => f, run = undefined}) => {
   const [data, setData] = useState({
     loading: false,
     sucess: false,
@@ -38,7 +36,7 @@ const Checkout = ({products}) => {
 
   useEffect(() => {
     getToken(userId, token);
-  }, []);
+  });
 
   const handleAddress = event => {
     setData({
@@ -70,7 +68,7 @@ const Checkout = ({products}) => {
     // send the nonce to your server
     // nonce = data.instance.requestPaymentMethod()
     let nonce;
-    let getNonce = data.instance.requestPaymentMethod().then(data => {
+    data.instance.requestPaymentMethod().then(data => {
       // console.log(data);
       nonce = data.nonce;
       // once you have nonce (card type, card number) send nonce as 'paymentMethodNonce'
@@ -98,6 +96,7 @@ const Checkout = ({products}) => {
           createOrder(userId, token, createOrderData)
             .then(response => {
               emptyCart(() => {
+                setRun(!run);
                 console.log('payment success and empty cart');
                 setData({
                   loading: false,
@@ -117,7 +116,10 @@ const Checkout = ({products}) => {
       })
       .catch(error => {
         // console.log("dropin error: ", error);
-        setData({ ...data, error: error.message });
+        setData({
+          ...data,
+          error: error.message
+        });
       });
   };
 

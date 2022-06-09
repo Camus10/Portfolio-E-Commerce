@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Layout from "./Layout";
-import { getCategories, getProducts, list } from "./APICore";
+import { getCategories, list } from "./APICore";
 import Card from "./Card";
 
 
@@ -51,12 +50,12 @@ const Search = () => {
     }
   }
 
-  const searchSubmit = (e) => {
+  const searchSubmit = e => {
     e.preventDefault();
     searchData();
   }
 
-  const handleChange = (name) => event => {
+  const handleChange = name => event => {
     setData({
       ...data,
       [name]: event.target.value,
@@ -82,10 +81,9 @@ const Search = () => {
         <div className="row">
           {results.map((product, i) => (
           <Card key={i} product={product} />
-        ))}
+          ))}
+        </div>
       </div>
-      </div>
-      
     );
   }
 
@@ -121,7 +119,7 @@ const Search = () => {
         {searchedProducts(results)}
       </div>
     </div>
-  )
+  );
 }
 
 

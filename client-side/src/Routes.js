@@ -12,6 +12,11 @@ import AddProduct from "./admin/AddProduct";
 import Shop from "./core/Shop";
 import Product from "./core/Product";
 import Cart from "./core/Cart";
+import Orders from './admin/Order';
+import Profile from './user/Profile';
+import ManageProducts from './admin/ManageProduct';
+import UpdateProduct from './admin/UpdateProduct';
+import UpdateCategory from './admin/UpdateCategory';
 
 
 const Routes = () => {
@@ -28,6 +33,11 @@ const Routes = () => {
         <AdminRoute path="/product/create" exact component={AddProduct} />
         <Route path="/product/:productId" exact component={Product} />
         <Route path="/cart" exact component={Cart} />
+        <AdminRoute path="/admin/orders" exact component={Orders} />
+        <PrivateRoute path="/profile/:userId" exact component={Profile} />
+        <PrivateRoute path="/admin/products" exact component={ManageProducts} />
+        <AdminRoute path="/admin/product/update/:productId" exact component={UpdateProduct} />
+        <AdminRoute path="/admin/category/update/:categoryId" exact component={UpdateCategory} />
       </Switch>
     </BrowserRouter>
   );

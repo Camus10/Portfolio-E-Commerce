@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 export const addItem = (item = [], count = 0, next = f => f) => {
   let cart = []
   if(typeof window !== "undefined"){
@@ -65,7 +66,7 @@ export const updateItem = (productId, count) => {
 }
 
 
-export const removeItem = (productId) => {
+export const removeItem = productId => {
   let cart = [];
   if(typeof window !== "undefined"){
     if(localStorage.getItem("cart")){

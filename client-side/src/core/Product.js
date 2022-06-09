@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Layout from "./Layout";
-import { getProducts } from "./APICore";
 import Card from "./Card";
 import { read, listRelated } from "./APICore";
 
@@ -8,7 +7,7 @@ import { read, listRelated } from "./APICore";
 const Product = props => {
   const [product, setProduct] = useState({});
   const [relatedProduct, setRelatedProduct] = useState([]);
-  const [error, setError] = useState(false);
+  const [setError] = useState(false);
 
   const loadSingleProduct = productId => {
     read(productId).then(data => {
@@ -30,7 +29,7 @@ const Product = props => {
   useEffect(() => {
     const productId = props.match.params.productId;
     loadSingleProduct(productId);
-  }, [props]);
+  });
 
   return(
     <Layout title={product && product.name} description={product && product.description && product.description.substring(0, 100)} className="container-fluid">
@@ -44,7 +43,7 @@ const Product = props => {
         <div className="col-4">
             <h4>Related Products</h4>
             {relatedProduct.map((p, i) => (
-              <div className="mb-3">
+              <div className="mb-3" key={i}>
                 <Card product={p}/>
               </div>
             ))}

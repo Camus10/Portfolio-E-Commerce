@@ -15,8 +15,8 @@ const Shop = () => {
     }
   });
   const [categories, setCategories] = useState([]);
-  const [error, setError] = useState(false);
-  const [limit, setLimit] = useState(3);
+  const [setError] = useState(false);
+  const [limit] = useState(3);
   const [skip, setSkip] = useState(0);
   const [size, setSize] = useState(0);
   const [filteredResults, setFilteredResults] = useState([]);
@@ -69,13 +69,13 @@ const Shop = () => {
           Load More
         </button>
       )
-    )
+    );
   }
 
   useEffect(() => {
     init();
     loadFilteredResults(skip, limit, myFilters.filters);
-  }, []);
+  });
 
   const handleFilters = (filters, filterBy) => {
     //console.log("Shop", filters, filterBy);

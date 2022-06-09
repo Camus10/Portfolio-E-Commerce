@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 
 
 const AdminDashboard = () => {
-  const { user: {_id, name, email, role} } = isAuthenticated();
+  const { user: { name, email, role} } = isAuthenticated();
   
   const adminLinks = () => {
     return(
       <div className="card">
-        <h4 className="card-header">User Links</h4>
+        <h4 className="card-header">Admin Links</h4>
         <ul className="list-group">
           <li className="list-group-item">
             <Link className="nav-link" to="/category/create">Create Category</Link>

@@ -8,7 +8,7 @@ import Search from "./Search";
 const Home = () => {
   const [productsBySell, setProductsBySell] = useState([]);
   const [productsByArrival, setProductsByArrival] = useState([]);
-  const [error, setError] = useState(false);
+  const [setError] = useState(false);
 
   const loadProductsBySell = () => {
     getProducts("sold").then(data => {
@@ -33,7 +33,7 @@ const Home = () => {
   useEffect(() => {
     loadProductsByArrival();
     loadProductsBySell();
-  }, []);
+  });
 
   return(
     <Layout title="Home Page" description="Node React E-Commerce App" className="container-fluid">

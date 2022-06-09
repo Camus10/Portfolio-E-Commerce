@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import Layout from "./Layout";
-import { getProducts } from "./APICore";
 import Card from "./Card";
 import { getCart } from "./CartHelpers";
 import { Link } from "react-router-dom";
@@ -36,9 +35,9 @@ const Cart = () => {
       <div className="row">
         <div className="col-6">{items.length > 0 ? showItems(items) : noItemsMessage()}</div>
         <div className="col-6">
-          <h2 className="mb-6">Your Cart Summary</h2>
+          <h2 className="mb-4">Your Cart Summary</h2>
           <hr/>
-          <Checkout products={items} />
+          <Checkout products={items} setRun={setRun} run={run} />
         </div>
       </div>
     </Layout>
